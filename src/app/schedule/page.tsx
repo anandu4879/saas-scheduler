@@ -1,7 +1,7 @@
-"use client"; // Mark this as a Client Component
+"use client"; // Add this directive
 
 import { useState } from "react";
-import { supabase } from "../../lib/supabaseClient";
+import { supabase } from "../../../lib/supabaseClient";
 
 export default function Schedule() {
   const [availability, setAvailability] = useState([]);

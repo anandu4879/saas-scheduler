@@ -1,3 +1,5 @@
+"use client"; // Add this directive
+
 import { supabase } from "../../lib/supabaseClient";
 import Link from "next/link";
 
