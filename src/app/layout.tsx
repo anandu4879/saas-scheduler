@@ -1,4 +1,4 @@
-"use client"; // Add this directive
+"use client";
 
 import { supabase } from "../../lib/supabaseClient";
 import Link from "next/link";
@@ -21,12 +21,23 @@ export default function RootLayout({
             <Link href="/" className="text-xl font-bold">
               SaaS Scheduling Tool
             </Link>
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
-            >
-              Logout
-            </button>
+            <div className="flex gap-4">
+              <Link href="/dashboard" className="hover:underline">
+                Dashboard
+              </Link>
+              <Link href="/schedule" className="hover:underline">
+                Schedule
+              </Link>
+              <Link href="/profile" className="hover:underline">
+                Profile
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </nav>
         {children}

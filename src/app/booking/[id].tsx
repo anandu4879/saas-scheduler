@@ -34,7 +34,13 @@ export default function Booking() {
       .update({ available_slots: booking?.available_slots.filter(slot => slot !== selectedSlot) })
       .eq("id", id);
     if (error) alert(error.message);
-    else alert("Slot booked successfully!");
+    else {
+      alert("Slot booked successfully!");
+      // Send confirmation email
+      await supabase.functions.invoke("send-booking-confirmation", {
+        body: JSON.stringify({ email: "client@example.com", slot: selectedSlot }),
+      });
+    }
   };
 
   if (!booking) return <p>Loading...</p>;
